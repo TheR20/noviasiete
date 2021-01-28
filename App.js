@@ -1,84 +1,72 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import * as React from 'react';
+import { Button, View, Text,ImageBackground,StyleSheet,TouchableHighlight } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Boton from './src/botones';
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Image,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const App: () => React$Node = () => {
+function HomeScreen({ navigation }) {
+const image = "https://media1.giphy.com/media/eH0KrUdhOmohWwfMWU/giphy.gif";
   return (
-    <>
-    <Image
-         style={styles.tinyLogo}
-         source={{
-           uri: 'https://steamuserimages-a.akamaihd.net/ugc/968746582431823680/D5BDE812D40942F133361683F9F9809892EE7AE2/',
-         }}
-       />
-    </>
-  );
-};
+    <ImageBackground style={styles.backgroundImage} source={{uri:  image}}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',bottom: -200, }}>
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  tinyLogo: {
-   width: 450,
-   height: 450,
+      <TouchableHighlight style = {styles.itemBarraSuperior} onPress={() =>
+    {navigation.navigate('Details', {genero:'Jazz' , numArreglo:0});}}>
+      <Boton pic="https://i.imgur.com/CtkfKUm.png" titulo="CONTINUAR PARTIDA"></Boton>
+  </TouchableHighlight>
+  <TouchableHighlight style = {styles.itemBarraSuperior} onPress={() =>
+{navigation.navigate('Details', {genero:'Jazz' , numArreglo:0});}}>
+  <Boton pic="https://i.imgur.com/CtkfKUm.png" titulo="NUEVA PARTIDA"></Boton>
+</TouchableHighlight>
+<TouchableHighlight style = {styles.itemBarraSuperior} onPress={() =>
+{navigation.navigate('Details', {genero:'Jazz' , numArreglo:0});}}>
+<Boton pic="https://i.imgur.com/CtkfKUm.png" titulo="CREDITOS"></Boton>
+</TouchableHighlight>
+    </View>
+  </ImageBackground>
+  );
+}
+
+function DetailsScreen({ navigation }) {
+const image = "https://i.pinimg.com/originals/94/c5/73/94c573eea4af66640e6e99451a7dedeb.gif";
+  return (
+    <ImageBackground style={styles.backgroundImage} source={{uri:  image}}>
+
+    </ImageBackground>
+  );
+}
+
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
+        <Stack.Screen name="Details" component={DetailsScreen}  options={{headerShown: false}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+const styles = StyleSheet.create ({
+
+ backgroundImage: {
+
+   flex: 1,
+   resizeMode: 'cover',
  },
-  engine: {
-    position: 'absolute',
-    right: 0,
+ itemBarraSuperior:{
+
+
+    justifyContent:'center',
+    alignItems:'center',
+    height:70,
+    width:50,
+    marginLeft:5,
+    marginRight:5,
+
   },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+
+})
 
 export default App;
