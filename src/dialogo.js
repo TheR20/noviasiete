@@ -14,7 +14,7 @@ import {
   ImageBackground
 } from 'react-native';
 
-const BotonP = (props, { navigation }) => {
+const Dialogo = (props, { navigation }) => {
 
   return(
 
@@ -29,8 +29,8 @@ const BotonP = (props, { navigation }) => {
     >
     <View
     style={{
-    width: 200,
-    height: 50,
+    width: 80,
+    height: 70,
     overflow: 'hidden',
     alignItems: 'center',
     borderRadius:1,
@@ -40,8 +40,8 @@ const BotonP = (props, { navigation }) => {
     <Image
     source={{uri: props.pic}}
     style={{
-    width: 200,
-    height: 40,
+    width: 80,
+    height: 70,
     resizeMode: 'cover',
 
       }}/>
@@ -57,9 +57,9 @@ alignItems: 'center',
           fontWeight: "bold",
           color: "white",
     textAlign: 'center',
-  bottom: 16,
+  bottom: 20,
 
-    textShadowColor: 'blue',
+    textShadowColor: 'red',
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 30,
   position: 'absolute',
@@ -75,4 +75,4 @@ alignItems: 'center',
 
 
 
-export default BotonP;
+export default Dialogo;
