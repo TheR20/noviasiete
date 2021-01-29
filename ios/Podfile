@@ -10,6 +10,12 @@ target 'noviasiete' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+
+  pod 'RNLocalize', :path => '../node_modules/react-native-localize'
+
+  pod 'ReactNativeLocalization', :path => '../node_modules/react-native-localization'
+
   target 'noviasieteTests' do
     inherit! :complete
     # Pods for testing

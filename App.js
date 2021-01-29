@@ -3,6 +3,33 @@ import { Button, View, Text,ImageBackground,StyleSheet,TouchableHighlight } from
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Boton from './src/botones';
+import Juego from './src/juego';
+import LocalizedStrings from 'react-native-localization';
+
+
+var Sound = require('react-native-sound');
+var sound4 = new Sound('risa', Sound.MAIN_BUNDLE, (error) => {
+if (error) {
+console.log('error', error);
+return;
+}
+// Poner el valor -1 hace que el loop sea infinito
+ //sound3.play();
+});
+//Usa la localisacion para saber el idio del telefono
+let strings = new LocalizedStrings({
+  en:{
+    Continuar:"CONTINUE",
+    Inicio: "NEW GAME",
+    Creditos: "CREDITS"
+  },
+  es:{
+    Continuar:"CONTINUAR",
+    Inicio: "NUEVA PARTIDA",
+    Creditos: "CREDITOS"
+  },
+
+});
 
 function HomeScreen({ navigation }) {
 const image = "https://media1.giphy.com/media/eH0KrUdhOmohWwfMWU/giphy.gif";
@@ -11,28 +38,19 @@ const image = "https://media1.giphy.com/media/eH0KrUdhOmohWwfMWU/giphy.gif";
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',bottom: -200, }}>
 
       <TouchableHighlight style = {styles.itemBarraSuperior} onPress={() =>
-    {navigation.navigate('Details', {genero:'Jazz' , numArreglo:0});}}>
-      <Boton pic="https://i.imgur.com/CtkfKUm.png" titulo="CONTINUAR PARTIDA"></Boton>
+    {navigation.navigate('Juego', {genero:'Jazz' , numArreglo:0});}}>
+      <Boton pic="https://i.imgur.com/CtkfKUm.png" titulo={strings.Continuar}></Boton>
   </TouchableHighlight>
   <TouchableHighlight style = {styles.itemBarraSuperior} onPress={() =>
 {navigation.navigate('Details', {genero:'Jazz' , numArreglo:0});}}>
-  <Boton pic="https://i.imgur.com/CtkfKUm.png" titulo="NUEVA PARTIDA"></Boton>
+  <Boton pic="https://i.imgur.com/CtkfKUm.png" titulo={strings.Inicio}></Boton>
 </TouchableHighlight>
 <TouchableHighlight style = {styles.itemBarraSuperior} onPress={() =>
 {navigation.navigate('Details', {genero:'Jazz' , numArreglo:0});}}>
-<Boton pic="https://i.imgur.com/CtkfKUm.png" titulo="CREDITOS"></Boton>
+<Boton pic="https://i.imgur.com/CtkfKUm.png" titulo={strings.Creditos}></Boton>
 </TouchableHighlight>
     </View>
   </ImageBackground>
-  );
-}
-
-function DetailsScreen({ navigation }) {
-const image = "https://i.pinimg.com/originals/94/c5/73/94c573eea4af66640e6e99451a7dedeb.gif";
-  return (
-    <ImageBackground style={styles.backgroundImage} source={{uri:  image}}>
-
-    </ImageBackground>
   );
 }
 
@@ -43,7 +61,8 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
-        <Stack.Screen name="Details" component={DetailsScreen}  options={{headerShown: false}}/>
+        
+  <Stack.Screen name="Juego" component={Juego}  options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
