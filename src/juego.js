@@ -29,6 +29,7 @@ import {
 
 import BotonP from './botonpeque';
 import Dialogo from './dialogo';
+
 import BotonSeleccion from './botonseleccion';
 import LocalizedStrings from 'react-native-localization';
 import { NavigationContainer } from '@react-navigation/native';
@@ -93,7 +94,7 @@ console.log("kk");
   render() {
 const image = "https://media2.giphy.com/media/1UgMjrQg0mqKMgighq/giphy.gif";
 const image2 = "https://i.pinimg.com/originals/7a/7d/cf/7a7dcfa6474ec4cbfa81113eebe3c0dc.jpg";
-var a = 2;
+var a = 0;
 if(a == 0)
 {
   return (

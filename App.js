@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Boton from './src/botones';
 import Juego from './src/juego';
 import LocalizedStrings from 'react-native-localization';
-
+import BaseDatos from './src/basedatos';
 
 var Sound = require('react-native-sound');
 var sound4 = new Sound('risa', Sound.MAIN_BUNDLE, (error) => {
@@ -42,7 +42,7 @@ const image = "https://media1.giphy.com/media/eH0KrUdhOmohWwfMWU/giphy.gif";
       <Boton pic="https://i.imgur.com/CtkfKUm.png" titulo={strings.Continuar}></Boton>
   </TouchableHighlight>
   <TouchableHighlight style = {styles.itemBarraSuperior} onPress={() =>
-{navigation.navigate('Details', {genero:'Jazz' , numArreglo:0});}}>
+{navigation.navigate('BaseDatos', {genero:'Jazz' , numArreglo:0});}}>
   <Boton pic="https://i.imgur.com/CtkfKUm.png" titulo={strings.Inicio}></Boton>
 </TouchableHighlight>
 <TouchableHighlight style = {styles.itemBarraSuperior} onPress={() =>
@@ -61,7 +61,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
-        
+        <Stack.Screen name="BaseDatos" component={BaseDatos}  options={{headerShown: false}}/>
   <Stack.Screen name="Juego" component={Juego}  options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
