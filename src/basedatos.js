@@ -102,7 +102,7 @@ export default class App extends React.Component {
          <ScrollView>
          {
             this.state.userList2.map(function(item2, i){
-              
+              {console.log(this.state.userList)}
               return(
                 <View key={i} style={styles.card}>
 
