@@ -6,9 +6,9 @@ import Boton from './src/botones';
 import Juego from './src/juego';
 import LocalizedStrings from 'react-native-localization';
 import BaseDatos from './src/basedatos';
-
+import SQLite from 'react-native-sqlite-storage';
 var Sound = require('react-native-sound');
-var sound = new Sound('hola', Sound.MAIN_BUNDLE, (error) => {
+var sound = new Sound('hola2', Sound.MAIN_BUNDLE, (error) => {
 if (error) {
 console.log('error', error);
 return;
@@ -39,6 +39,7 @@ var imagenbocina = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Sp
     const [appStateVisible, setAppStateVisible] = useState(appState.current);
       const [imagenActi, setimagenActi] = React.useState('activo');
         const [imagenActiUrl, setimagenActiUrl] = React.useState('https://i.imgur.com/DUTvX0j.png');
+          const [UltimodiaActivo, setUltimodiaActivo] = React.useState('A3');
 
 useEffect(() => {
      AppState.addEventListener("change", _handleAppStateChange);
@@ -78,13 +79,50 @@ useEffect(() => {
 
        }
 
+let db;
+
+         db = SQLite.openDatabase(
+           {
+             name: 'UsarData.db', //Name of you table
+             createFromLocation : "~user.db", //Name of your DB
+           },
+
+        // error callback
+         );
+
+success=()=>{
+  console.log("si entro we ");
+           db.transaction(tx => {
+             tx.executeSql('SELECT * FROM UsarData ', [], (tx, results) => {  // sql query to get all table data and storing it in 'results' variable
+               let data = results.rows.length;
+
+               let users = [];    //creating empty array to store the rows of the sql table data
+
+               for (let i = 0; i < results.rows.length; i++) {
+                 users.push(results.rows.item(i));
+                              //looping through each row in the table and storing it as object in the 'users' array
+               }
+
+                 setUltimodiaActivo(users[0].UltimoDia);
+                  console.log(users[0].UltimoDia);
+
+                //setting the state(userlist) with users array which has all the table data
+             });
+           });
+           // alert("ok")
+         }
+
+
+
+success();
+
 
   return (
     <ImageBackground style={styles.backgroundImage} source={{uri:  image}}>
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',bottom: -200, }}>
 
       <TouchableHighlight style = {styles.itemBarraSuperior} onPress={() =>
-    {navigation.navigate('Juego', {genero:'Jazz' , numArreglo:0});}}>
+    {navigation.navigate('Juego', {lastDay:UltimodiaActivo});}}>
       <Boton pic="https://i.imgur.com/CtkfKUm.png" titulo={strings.Continuar}></Boton>
   </TouchableHighlight>
   <TouchableHighlight style = {styles.itemBarraSuperior} onPress={() =>

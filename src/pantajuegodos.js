@@ -22,6 +22,8 @@ const PantaJuegoDos = (props, { navigation }) => {
 
   return(
     <ImageBackground style={styles.backgroundImage} source={{uri: props.imagen}}>
+    <View style={{flex: 1}}>
+        <ScrollView>
     <View style = {styles.barraSuperior}>
     <TouchableHighlight style = {styles.itemBarraSuperior} onPress={
     () => {props.navigate(props.destination)}}>
@@ -51,16 +53,19 @@ const PantaJuegoDos = (props, { navigation }) => {
 
     </View>
 
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',bottom: -150, }}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',marginTop: 200, }}>
 
 
         <TouchableHighlight style = {styles.botoncontinuar} onPress={
-        () => {props.onPress("Jamon Cerrano")}}>
+      () => {props.onPress(props.Movera)}}>
         <BotonP pic="https://i.imgur.com/CtkfKUm.png" titulo={props.Continuar}></BotonP>
         </TouchableHighlight>
 
         <Text style={styles.CajaDialogo}>{props.Texto}</Text>
+
     </View>
+    </ScrollView>
+      </View>
     </ImageBackground>
 
   )

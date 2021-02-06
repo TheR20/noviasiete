@@ -21,7 +21,11 @@ const PantaJuegoTres = (props, { navigation }) => {
 
   return(
     <ImageBackground style={styles.backgroundImage} source={{uri: props.imagen}}>
+
+    <View style={{flex: 1}}>
+        <ScrollView>
     <View style = {styles.barraSuperior}>
+
     <TouchableHighlight style = {styles.itemBarraSuperior} onPress={
     () => {props.navigate(props.destination)}}>
             <View style = {{height: 60, width: 60}}>
@@ -50,17 +54,22 @@ const PantaJuegoTres = (props, { navigation }) => {
 
     </View>
 
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',bottom: 5, }}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',marginTop: 10, }}>
 
     <Text style={styles.CajaDialogoDias}>{props.Dia}</Text>
     <Text style={styles.CajaDialogoDias}>12:00:00AM </Text>
 
         <TouchableHighlight style = {styles.botoncontinuarTextDias} onPress={
-      () => {props.onPress("Jamon Cerrano")}}>
+      () => {props.onPress(props.Movera)}}>
         <BotonP pic="https://i.imgur.com/TvggTwY.png" titulo={props.Continuar}></BotonP>
         </TouchableHighlight>
 
     </View>
+
+
+
+    </ScrollView>
+      </View>
     </ImageBackground>
 
   )
@@ -122,24 +131,7 @@ justifyContent:'center',
          marginRight:5,
 
        },
-      botoncontinuar:{
-justifyContent:'center',
-         alignItems:'center',
-         height:70,
-         width:50,
-         marginLeft:205,
-         marginRight:5,
 
-       },
-       botoncontinuarText:{
- justifyContent:'center',
-          alignItems:'center',
-          height:70,
-          width:120,
-          marginLeft:205,
-          marginRight:5,
-            top: 125
-        },
         botoncontinuarTextDias:{
   justifyContent:'center',
            alignItems:'center',
@@ -147,7 +139,7 @@ justifyContent:'center',
            width:120,
            marginLeft:205,
            marginRight:5,
-             top: 180
+          
          },
        itemBarraSuperior:{
     flex:1,

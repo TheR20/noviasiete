@@ -24,6 +24,8 @@ const PantaJuegoUno = (props, { navigation }) => {
 
   return(
     <ImageBackground style={styles.backgroundImage} source={{uri: props.imagen}}>
+    <View style={{flex: 1}}>
+        <ScrollView>
     <View style = {styles.barraSuperior}>
     <TouchableHighlight style = {styles.itemBarraSuperior} onPress={
     () => {props.navigate(props.destination)}}>
@@ -54,34 +56,32 @@ const PantaJuegoUno = (props, { navigation }) => {
 
     </View>
 
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' , bottom: -100}}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',marginTop: 200,}}>
 
 
           <TouchableHighlight style = {styles.botonseleccion}  onPress={
-          () => {props.onPress("Jamon Cerrano")}}>
+          () => {props.onPress(props.Movera)}}>
           <BotonSeleccion pic="https://i.imgur.com/TvggTwY.png" titulo={props.opcion1}></BotonSeleccion>
           </TouchableHighlight>
 
           <TouchableHighlight style = {styles.botonseleccion} onPress={
-          () => {props.onPress("Jamon Cerrano")}}>
+          () => {props.onPress(props.Movera2)}}>
           <BotonSeleccion pic="https://i.imgur.com/TvggTwY.png" titulo={props.opcion2}></BotonSeleccion>
           </TouchableHighlight>
 
           <TouchableHighlight style = {styles.botonseleccion} onPress={
-          () => {props.onPress("Jamon Cerrano")}}>
+          () => {props.onPress(props.Movera3)}}>
           <BotonSeleccion pic="https://i.imgur.com/TvggTwY.png" titulo={props.opcion3}></BotonSeleccion>
           </TouchableHighlight>
 
-
-
-    </View>
-
-
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',bottom: -5, }}>
-
-        <Text style={styles.CajaDialogo}>{props.Texto}</Text>
+  <Text style={styles.CajaDialogo}>{props.Texto}</Text>
 
     </View>
+
+
+
+    </ScrollView>
+      </View>
     </ImageBackground>
 
   )
