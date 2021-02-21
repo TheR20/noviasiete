@@ -40,6 +40,9 @@ var imagenbocina = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Sp
       const [imagenActi, setimagenActi] = React.useState('activo');
         const [imagenActiUrl, setimagenActiUrl] = React.useState('https://i.imgur.com/DUTvX0j.png');
           const [UltimodiaActivo, setUltimodiaActivo] = React.useState('A3');
+const [amorTotal, setamorTotal] = React.useState('0');
+
+
 
 useEffect(() => {
      AppState.addEventListener("change", _handleAppStateChange);
@@ -104,7 +107,8 @@ success=()=>{
                }
 
                  setUltimodiaActivo(users[0].UltimoDia);
-                  console.log(users[0].UltimoDia);
+                 setamorTotal(users[0].AmorTotal);
+                  console.log(users[0].UltimoDia +"El amor es "+amorTotal);
 
                 //setting the state(userlist) with users array which has all the table data
              });
@@ -114,19 +118,24 @@ success=()=>{
 
 
 
-success();
 
-
+React.useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      success();
+      console.log('Refreshed');
+    });
+    return unsubscribe;
+  }, [navigation]);
   return (
     <ImageBackground style={styles.backgroundImage} source={{uri:  image}}>
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',bottom: -200, }}>
 
       <TouchableHighlight style = {styles.itemBarraSuperior} onPress={() =>
-    {navigation.navigate('Juego', {lastDay:UltimodiaActivo});}}>
+    {navigation.navigate('Juego', {lastDay:UltimodiaActivo, totalLove:amorTotal});}}>
       <Boton pic="https://i.imgur.com/CtkfKUm.png" titulo={strings.Continuar}></Boton>
   </TouchableHighlight>
   <TouchableHighlight style = {styles.itemBarraSuperior} onPress={() =>
-{navigation.navigate('BaseDatos', {genero:'Jazz' , numArreglo:0});}}>
+  {navigation.navigate('Juego', {lastDay:"A0", totalLove:amorTotal});}}>
   <Boton pic="https://i.imgur.com/CtkfKUm.png" titulo={strings.Inicio}></Boton>
 </TouchableHighlight>
 <TouchableHighlight style = {styles.itemBarraSuperior} onPress={() =>

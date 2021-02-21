@@ -48,9 +48,9 @@ const PantaJuegoUno = (props, { navigation }) => {
 
                             </View>
                             </TouchableHighlight>
-                            <TouchableHighlight style = {styles.itemBarraSuperior} onPress={() => {navigation.navigate('Gift', {});}}>
+                            <TouchableHighlight style = {styles.itemBarraSuperior}>
 
-                                    <Dialogo pic="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b1f45d5-0dae-4b0b-8ad0-2343a01afd50/d5seutk-61b62bfc-ef1a-4712-95a9-744c756e2d03.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvN2IxZjQ1ZDUtMGRhZS00YjBiLThhZDAtMjM0M2EwMWFmZDUwXC9kNXNldXRrLTYxYjYyYmZjLWVmMWEtNDcxMi05NWE5LTc0NGM3NTZlMmQwMy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.7r6IMCgWeytzv5lZXfT2KCoOPdJkxjw5kjFQufios1c" titulo="25%"></Dialogo>
+                                    <Dialogo pic="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b1f45d5-0dae-4b0b-8ad0-2343a01afd50/d5seutk-61b62bfc-ef1a-4712-95a9-744c756e2d03.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvN2IxZjQ1ZDUtMGRhZS00YjBiLThhZDAtMjM0M2EwMWFmZDUwXC9kNXNldXRrLTYxYjYyYmZjLWVmMWEtNDcxMi05NWE5LTc0NGM3NTZlMmQwMy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.7r6IMCgWeytzv5lZXfT2KCoOPdJkxjw5kjFQufios1c" titulo={props.Amor}></Dialogo>
 
                                     </TouchableHighlight>
 
@@ -60,17 +60,17 @@ const PantaJuegoUno = (props, { navigation }) => {
 
 
           <TouchableHighlight style = {styles.botonseleccion}  onPress={
-          () => {props.onPress(props.Movera)}}>
+          () => {props.onPress(props.Movera,props.Amor1)}}>
           <BotonSeleccion pic="https://i.imgur.com/TvggTwY.png" titulo={props.opcion1}></BotonSeleccion>
           </TouchableHighlight>
 
           <TouchableHighlight style = {styles.botonseleccion} onPress={
-          () => {props.onPress(props.Movera2)}}>
+          () => {props.onPress(props.Movera2,props.Amor2)}}>
           <BotonSeleccion pic="https://i.imgur.com/TvggTwY.png" titulo={props.opcion2}></BotonSeleccion>
           </TouchableHighlight>
 
           <TouchableHighlight style = {styles.botonseleccion} onPress={
-          () => {props.onPress(props.Movera3)}}>
+          () => {props.onPress(props.Movera3,props.Amor3)}}>
           <BotonSeleccion pic="https://i.imgur.com/TvggTwY.png" titulo={props.opcion3}></BotonSeleccion>
           </TouchableHighlight>
 
@@ -97,11 +97,11 @@ const styles = StyleSheet.create({
   },
 
   CajaDialogo: {
-    borderColor:'rgba(58, 134, 166, 1)',
-    borderWidth:10,
-    textShadowColor: 'blue',
-    textShadowOffset: {width: -1, height: 1},
-    textShadowRadius: 30,
+      borderColor:'rgba(58, 134, 166, 1)',
+      borderWidth:10,
+      textShadowColor: 'blue',
+      textShadowOffset: {width: -1, height: 1},
+      textShadowRadius: 30,
         textAlign: 'center', // <-- the magic
           fontSize: 21,
           color: "white",
@@ -109,7 +109,11 @@ const styles = StyleSheet.create({
             fontFamily: 'monospace',
             marginLeft:2,
             marginRight:2,
-borderRadius:14,
+            borderRadius:14,
+            paddingLeft: 10,
+         paddingRight: 10,
+          paddingBottom: 10,
+          paddingTop: 10,
       },
 CajaDialogoDias: {
 
