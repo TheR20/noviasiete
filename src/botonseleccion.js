@@ -17,14 +17,10 @@ import {
 const BotonSeleccion = (props, { navigation }) => {
 
   return(
-
     <View
     style={{
-
-
       borderRadius:1,
       padding: 5,
-
     }}
     >
     <View
@@ -36,20 +32,17 @@ const BotonSeleccion = (props, { navigation }) => {
     borderRadius:1,
       }}
     >
-
     <Image
     source={{uri: props.pic}}
     style={{
     width: 400,
     height: 60,
     resizeMode: 'cover',
-
       }}/>
     </View>
 
 <View   style={{
 alignItems: 'center',
-
   }}>
     <Text
     style={{
@@ -58,7 +51,6 @@ alignItems: 'center',
           color: "white",
     textAlign: 'center',
   bottom: 20,
-
     textShadowColor: 'blue',
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 30,
@@ -67,12 +59,7 @@ alignItems: 'center',
     > {props.titulo}</Text>
       </View>
     </View>
-
-
   )
-
 }
-
-
 
 export default BotonSeleccion;

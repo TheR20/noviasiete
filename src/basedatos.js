@@ -14,11 +14,7 @@ import {
 } from 'react-native';
 import { Component } from 'react';
 
-
-
 let db;
-
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -35,25 +31,20 @@ export default class App extends React.Component {
       this.fail                // error callback
     );
     }
-
     success=()=>{
       db.transaction(tx => {
         tx.executeSql('SELECT * FROM Users', [], (tx, results) => {  // sql query to get all table data and storing it in 'results' variable
           let data = results.rows.length;
-
           let users = [];    //creating empty array to store the rows of the sql table data
-
           for (let i = 0; i < results.rows.length; i++) {
             users.push(results.rows.item(i));
                          //looping through each row in the table and storing it as object in the 'users' array
           }
-
            this.setState({ userList:users});         //setting the state(userlist) with users array which has all the table data
         });
       });
       // alert("ok")
     }
-
     fail=(error)=>{
       console.error(error) // logging out error if there is one
     }
@@ -66,8 +57,6 @@ export default class App extends React.Component {
       this.success.bind(this),  //okCallback
       this.fail                // error callback
     );
-
-
     success=()=>{
       db.transaction(tx => {
         tx.executeSql('SELECT * FROM UsersEn', [], (tx, results) => {  // sql query to get all table data and storing it in 'results' variable
@@ -79,25 +68,16 @@ export default class App extends React.Component {
             users.push(results.rows.item(i));
                          //looping through each row in the table and storing it as object in the 'users' array
           }
-
            this.setState({ userList2:users});         //setting the state(userlist) with users array which has all the table data
         });
       });
       // alert("ok")
     }
-
     fail=(error)=>{
       console.error(error) // logging out error if there is one
     }
-
-
-
   render() {
-
-
-
     return (
-
          <View style={{flex:1}}>
          <ScrollView>
          {
@@ -105,39 +85,27 @@ export default class App extends React.Component {
               {console.log(this.state.userList)}
               return(
                 <View key={i} style={styles.card}>
-
                   <Text >{item2.Text}</Text>
-
-
                 </View>
               )
             })
           }
-
          {
             this.state.userList.map(function(item, i){
-
               return(
                 <View key={i} style={styles.card}>
                  <Text >{item.ID}</Text>
                   <Text >{item.Texto}</Text>
-
-
                 </View>
               )
             })
           }
-
           </ScrollView>
-
       </View>
-
     );
   }
 }
-
 const styles = StyleSheet.create ({
-
  card:{
    backgroundColor:"#eee",
    marginBottom:12,
@@ -152,5 +120,4 @@ const styles = StyleSheet.create ({
    shadowRadius: 2,
    elevation: 2,
  },
-
 })

@@ -29,8 +29,11 @@ let strings = new LocalizedStrings({
     Inicio: "NUEVA PARTIDA",
     Creditos: "CREDITOS"
   },
-
 });
+
+reinicioAmor=()=>{
+  console.log("Reinicio amor")
+}
 
 function HomeScreen({ navigation }) {
 const image = "https://media1.giphy.com/media/eH0KrUdhOmohWwfMWU/giphy.gif";
@@ -41,9 +44,6 @@ var imagenbocina = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Sp
         const [imagenActiUrl, setimagenActiUrl] = React.useState('https://i.imgur.com/DUTvX0j.png');
           const [UltimodiaActivo, setUltimodiaActivo] = React.useState('A3');
 const [amorTotal, setamorTotal] = React.useState('0');
-
-
-
 useEffect(() => {
      AppState.addEventListener("change", _handleAppStateChange);
 
@@ -83,27 +83,21 @@ useEffect(() => {
        }
 
 let db;
-
          db = SQLite.openDatabase(
            {
              name: 'UsarData.db', //Name of you table
              createFromLocation : "~user.db", //Name of your DB
            },
-
         // error callback
          );
-
 success=()=>{
-  console.log("si entro we ");
+  console.log("Conexion a la base de datos exitosa");
            db.transaction(tx => {
              tx.executeSql('SELECT * FROM UsarData ', [], (tx, results) => {  // sql query to get all table data and storing it in 'results' variable
                let data = results.rows.length;
-
                let users = [];    //creating empty array to store the rows of the sql table data
-
                for (let i = 0; i < results.rows.length; i++) {
-                 users.push(results.rows.item(i));
-                              //looping through each row in the table and storing it as object in the 'users' array
+                 users.push(results.rows.item(i));              //looping through each row in the table and storing it as object in the 'users' array
                }
 
                  setUltimodiaActivo(users[0].UltimoDia);

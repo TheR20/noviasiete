@@ -15,16 +15,11 @@ import {
 } from 'react-native';
 
 const Dialogo = (props, { navigation }) => {
-
   return(
-
     <View
     style={{
-
-
       borderRadius:1,
       padding: 5,
-
     }}
     >
     <View
@@ -36,20 +31,17 @@ const Dialogo = (props, { navigation }) => {
     borderRadius:1,
       }}
     >
-
     <Image
     source={{uri: props.pic}}
     style={{
     width: 80,
     height: 70,
     resizeMode: 'cover',
-
       }}/>
     </View>
 
 <View   style={{
 alignItems: 'center',
-
   }}>
     <Text
     style={{
@@ -67,12 +59,7 @@ alignItems: 'center',
     > {props.titulo}</Text>
       </View>
     </View>
-
-
   )
-
 }
-
-
 
 export default Dialogo;

@@ -17,10 +17,7 @@ import BotonP from './botonpeque';
 import Dialogo from './dialogo';
 import BotonSeleccion from './botonseleccion';
 import { Text,  Button } from 'galio-framework'
-
-
 const PantaJuegoUno = (props, { navigation }) => {
-
 
   return(
     <ImageBackground style={styles.backgroundImage} source={{uri: props.imagen}}>
@@ -45,53 +42,36 @@ const PantaJuegoUno = (props, { navigation }) => {
                     </TouchableHighlight>
                     <TouchableHighlight style = {styles.itemBarraSuperior} >
                             <View style = {{height: 100, width: 100}}>
-
                             </View>
                             </TouchableHighlight>
                             <TouchableHighlight style = {styles.itemBarraSuperior}>
-
                                     <Dialogo pic="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b1f45d5-0dae-4b0b-8ad0-2343a01afd50/d5seutk-61b62bfc-ef1a-4712-95a9-744c756e2d03.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvN2IxZjQ1ZDUtMGRhZS00YjBiLThhZDAtMjM0M2EwMWFmZDUwXC9kNXNldXRrLTYxYjYyYmZjLWVmMWEtNDcxMi05NWE5LTc0NGM3NTZlMmQwMy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.7r6IMCgWeytzv5lZXfT2KCoOPdJkxjw5kjFQufios1c" titulo={props.Amor}></Dialogo>
 
                                     </TouchableHighlight>
-
     </View>
-
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',marginTop: 200,}}>
-
-
           <TouchableHighlight style = {styles.botonseleccion}  onPress={
           () => {props.onPress(props.Movera,props.Amor1)}}>
           <BotonSeleccion pic="https://i.imgur.com/TvggTwY.png" titulo={props.opcion1}></BotonSeleccion>
           </TouchableHighlight>
-
           <TouchableHighlight style = {styles.botonseleccion} onPress={
           () => {props.onPress(props.Movera2,props.Amor2)}}>
           <BotonSeleccion pic="https://i.imgur.com/TvggTwY.png" titulo={props.opcion2}></BotonSeleccion>
           </TouchableHighlight>
-
           <TouchableHighlight style = {styles.botonseleccion} onPress={
           () => {props.onPress(props.Movera3,props.Amor3)}}>
           <BotonSeleccion pic="https://i.imgur.com/TvggTwY.png" titulo={props.opcion3}></BotonSeleccion>
           </TouchableHighlight>
-
   <Text style={styles.CajaDialogo}>{props.Texto}</Text>
-
     </View>
-
-
-
     </ScrollView>
       </View>
     </ImageBackground>
-
   )
-
 }
 
 const styles = StyleSheet.create({
-
   backgroundImage: {
-
     flex: 1,
     resizeMode: 'cover',
   },
@@ -115,20 +95,20 @@ const styles = StyleSheet.create({
           paddingBottom: 10,
           paddingTop: 10,
       },
-CajaDialogoDias: {
 
+CajaDialogoDias: {
   textShadowColor: 'yellow',
   textShadowOffset: {width: -1, height: 1},
   textShadowRadius: 10,
       textAlign: 'center', // <-- the magic
         fontSize: 45,
         color: "white",
-
           fontFamily: 'monospace',
           marginLeft:2,
           marginRight:2,
 borderRadius:14,
     },
+
     CajaDialogoContinuar: {
           textAlign: 'center', // <-- the magic
             fontSize: 18,
@@ -138,6 +118,7 @@ borderRadius:14,
               marginRight:2,
                 borderRadius:14,
         },
+
       botonseleccion:{
 justifyContent:'center',
          alignItems:'center',
@@ -147,6 +128,7 @@ justifyContent:'center',
          marginRight:5,
 
        },
+
       botoncontinuar:{
 justifyContent:'center',
          alignItems:'center',
@@ -154,8 +136,8 @@ justifyContent:'center',
          width:50,
          marginLeft:205,
          marginRight:5,
-
        },
+
        botoncontinuarText:{
  justifyContent:'center',
           alignItems:'center',
@@ -165,6 +147,7 @@ justifyContent:'center',
           marginRight:5,
             top: 125
         },
+
         botoncontinuarTextDias:{
   justifyContent:'center',
            alignItems:'center',
@@ -174,18 +157,18 @@ justifyContent:'center',
            marginRight:5,
              top: 180
          },
+
        itemBarraSuperior:{
     flex:1,
     flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',
-
     marginLeft:5,
     marginRight:5,
 
   },
-       barraSuperior:{
 
+       barraSuperior:{
     flexDirection: 'row',
     marginTop:1,
   },
